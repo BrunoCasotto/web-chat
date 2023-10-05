@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    Hello world
+    <RouterView></RouterView>
   </div>
 </template>
 
@@ -8,4 +8,11 @@
 
 </script>
 
-<style scoped></style>
+<style lang="scss" scoped>
+@import './assets/scss/vars.scss';
+  .container {
+    width: 100%;
+    max-width: $screen-mg;
+    margin: 0 auto;
+  }
+</style>
