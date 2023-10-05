@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  &::before,
+  &::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+*:focus {
+  outline: none;
+}
+
+body,
+p {
+  margin: 0;
+}
+
+html {
+  font-size: 14px;
+  font-weight: 400;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Source Sans Pro';
+
+  img {
+    max-width: 100%;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+		}
+	}
+}
