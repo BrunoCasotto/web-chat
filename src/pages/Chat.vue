@@ -14,6 +14,12 @@
 import SideMenu from '@/components/SideMenu.vue'
 import ChatContent from '@/components/ChatContent.vue'
 import ChatCard from '@/components/ChatCard.vue'
+import { onMounted } from 'vue';
+import { getMessages } from '../gateways/firebase.gateway.http'
+
+onMounted(() => {
+  getMessages()
+})
 </script>
 
 <style lang="scss" scoped>
