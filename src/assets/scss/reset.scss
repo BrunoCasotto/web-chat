@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Source+Sans+3&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Roboto:wght@400;500&family=Source+Sans+3&display=swap');
 
 * {
   box-sizing: border-box;
@@ -29,6 +29,7 @@ html {
   -ms-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Inter', sans-serif;
   font-family: 'Roboto', sans-serif;
   font-family: 'Source Sans 3', sans-serif;
 

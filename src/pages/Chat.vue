@@ -1,7 +1,7 @@
 <template>
   <div class="chat">
     <SideMenu class="chat__menu">
-      <template v-for="n in 10">
+      <template v-for="n in 5">
         <ChatCard />
       </template>
     </SideMenu>

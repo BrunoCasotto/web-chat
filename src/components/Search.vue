@@ -12,18 +12,18 @@
 <style lang="scss" scoped>
 @import '../assets/scss/vars.scss';
 .search {
-  height: 40px;
   position: relative;
 
   &__icon {
     position: absolute;
     left: 10px;
-    top: 5px;
+    top: 8px;
   }
 
   &__input {
     width: 100%;
-    padding: 8px;
+    height: 40px;
+    padding: 8px 16px;
     padding-left: 35px;
     border-radius: 22px;
     background-color: $neutral-color-2;
