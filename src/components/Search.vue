@@ -13,6 +13,7 @@
 @import '../assets/scss/vars.scss';
 .search {
   position: relative;
+  height: 40px;
 
   &__icon {
     position: absolute;
@@ -22,7 +23,7 @@
 
   &__input {
     width: 100%;
-    height: 40px;
+    height: 100%;
     padding: 8px 16px;
     padding-left: 35px;
     border-radius: 22px;
