@@ -26,8 +26,8 @@
     padding: 8px;
     padding-left: 35px;
     border-radius: 22px;
-    border: 1px solid $neutral-color-1;
     background-color: $neutral-color-2;
+    border: 1px solid $neutral-color-3;
   }
 }
 </style>

@@ -1,6 +1,13 @@
 <template>
   <section class="card">
-    ChatCard
+    <div class="card__icon"></div>
+    <div class="card__info">
+      <h2 class="title">Nome do grupo</h2>
+      <p class="preview">
+        Exemplo de uma mensagem enviada por ultimo no grupo ou sei la.
+        Exemplo de uma mensagem enviada por ultimo no grupo ou sei la.
+      </p>
+    </div>
   </section>
 </template>
 
@@ -13,5 +20,33 @@
     height: 72px;
     width: 100%;
     padding: 16px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__info {
+      .title {
+        font-size: $font-size-lg;
+        color: $main-color-4;
+        margin-bottom: 2px;
+      }
+
+      .preview {
+        font-size: $font-size-md;
+        color: $main-color-5;
+        max-height: 34px;
+        overflow: hidden;
+        word-break: break-word;
+      }
+    }
+
+    &__icon {
+      min-width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: $neutral-color-2;
+      border: 1px solid $neutral-color-3;
+      margin-right: 16px;
+    }
   }
 </style>

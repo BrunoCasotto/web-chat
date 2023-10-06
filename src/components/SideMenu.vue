@@ -15,14 +15,15 @@ import Search from '@/components/Search.vue'
 @import '../assets/scss/vars.scss';
 .side-menu {
   width: 100%;
+  min-width: 300px;
   height: 100vh;
-  border-right: 1px solid $neutral-color-1;
+  border-right: 1px solid $neutral-color-3;
   overflow-y: auto;
 
   &__header {
-    width: 100%;
-    padding: 8px 16px;
-    border-bottom: 1px solid $neutral-color-1;;
+    height: 56px;
+    padding: 10px 16px;
+    border-bottom: 1px solid $neutral-color-3;
   }
 }
 </style>
