@@ -23,6 +23,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
+
+    &:hover, .active {
+      background-color: $neutral-color-2;
+    }
 
     &__info {
       .title {
@@ -34,7 +39,7 @@
       .preview {
         font-size: $font-size-md;
         color: $main-color-5;
-        max-height: 34px;
+        max-height: 40px;
         overflow: hidden;
         word-break: break-word;
       }

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Source+Sans+3&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -27,7 +29,8 @@ html {
   -ms-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  font-family: 'Source Sans Pro';
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Source Sans 3', sans-serif;
 
   img {
     max-width: 100%;

@@ -1,7 +1,7 @@
 <template>
   <div class="search">
     <img class="search__icon" src="./../assets/images/magnifier.svg" alt="">
-    <input class="search__input" type="text">
+    <input class="search__input" placeholder="Search" type="text">
   </div>
 </template>
 
