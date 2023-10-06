@@ -12,6 +12,6 @@
   .card {
     height: 72px;
     width: 100%;
-    padding: 12px;
+    padding: 16px 12px;
   }
 </style>

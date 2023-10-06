@@ -1,6 +1,6 @@
 <template>
   <section class="chat">
-    ChatContent
+    <slot></slot>
   </section>
 </template>
 
