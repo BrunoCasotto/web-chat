@@ -78,6 +78,20 @@ import Signin from '@/components/Signin.vue'
     color: $main-color-1;
     text-align: center;
     margin-bottom: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 40px;
+      background-image: url('./../assets/images/send.svg');
+      background-repeat: no-repeat;
+      background-size: contain;
+      margin-left: 10px;
+    }
 
     @media screen and (max-width: $screen-md) {
       font-size: 40px;
