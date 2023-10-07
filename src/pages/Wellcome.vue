@@ -1,6 +1,8 @@
 <template>
   <div class="wellcome">
     <h1 class="title">Byte Papo</h1>
+    <Signin class="wellcome__signin"/>
+
     <div class="informations informations--borderless">
       <h2 class="sub-title">Bem-vindo ao Byte Papo</h2>
       <p class="info">
@@ -10,8 +12,6 @@
         hoje e comece a conversar!
       </p>
     </div>
-
-    <Signin class="wellcome__signin"/>
 
     <div class="informations-grid">
       <div class="informations informations--grid">
@@ -58,24 +58,30 @@ import Signin from '@/components/Signin.vue'
 @import '../assets/scss/vars.scss';
 
 .wellcome {
+  padding-top: 16px;
   min-height: 100vh;
   width: 100%;
 
+  @media screen and (max-width: $screen-md) {
+    padding-top: 8px;
+  }
+
   &__signin {
     margin-bottom: 32px;
+    @media screen and (max-width: $screen-md) {
+      margin-bottom: 0px;
+    }
   }
   .title {
-    padding: 32px 0;
+    font-weight: 600;
     font-size: 50px;
-    color: $neutral-color-1;
+    color: $main-color-1;
     text-align: center;
     margin-bottom: 32px;
-    background-color: $main-color-1;
 
     @media screen and (max-width: $screen-md) {
       font-size: 40px;
-      padding: 16px 0;
-      margin-bottom: 16px;
+      margin-bottom: 8px;
     }
   }
 
@@ -85,7 +91,7 @@ import Signin from '@/components/Signin.vue'
     margin-bottom: 16px;
 
     @media screen and (max-width: $screen-md) {
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
   }
 
@@ -106,7 +112,7 @@ import Signin from '@/components/Signin.vue'
 
     @media screen and (max-width: $screen-md) {
       padding: 16px;
-      margin-bottom: 16px;
+      margin-bottom: 8px;
     }
 
     &--borderless {

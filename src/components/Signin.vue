@@ -1,6 +1,5 @@
 <template>
   <div class="login">
-    <h3 class="title">Login</h3>
     <button class="google-btn"></button>
   </div>
 </template>
