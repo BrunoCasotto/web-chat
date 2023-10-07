@@ -1,6 +1,6 @@
 <template>
   <div class="message-input">
-    <input class="message-input__input" placeholder="Search" type="text">
+    <input class="message-input__input" placeholder="Your message here" type="text">
     <button class="message-input__send">
       <img class="message-input__icon" src="./../assets/images/send.svg" alt="">
     </button>

@@ -15,11 +15,17 @@ import SideMenu from '@/components/SideMenu.vue'
 import ChatContent from '@/components/ChatContent.vue'
 import ChatCard from '@/components/ChatCard.vue'
 import { onMounted } from 'vue';
-import { getMessages } from '../gateways/firebase.gateway.http'
+import { app } from '../gateways/firebase.gateway.http'
+import { getDatabase, ref, onValue } from "firebase/database";
 
-onMounted(() => {
-  getMessages()
-})
+const db = getDatabase();
+const starCountRef = ref(db, 'chats/general');
+
+onValue(starCountRef, (snapshot) => {
+  const data = snapshot.val();
+  console.log(data)
+});
+
 </script>
 
 <style lang="scss" scoped>
