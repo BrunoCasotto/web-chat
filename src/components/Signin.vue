@@ -14,12 +14,20 @@
 .login {
   padding: 32px;
   background: $main-color-1;
-background: linear-gradient(180deg, $main-color-1 50%, $neutral-color-1 100%);
+  background: linear-gradient(180deg, $main-color-1 50%, $neutral-color-1 100%);
+
+  @media screen and (max-width: $screen-md) {
+    padding: 16px;
+  }
   .title {
-    font-size: 50px;
+    font-size: 40px;
     color: $neutral-color-1;
     text-align: center;
     margin-bottom: 16px;
+
+    @media screen and (max-width: $screen-md) {
+      margin-bottom: 8px;
+    }
   }
 
   .google-btn {

@@ -71,12 +71,22 @@ import Signin from '@/components/Signin.vue'
     text-align: center;
     margin-bottom: 32px;
     background-color: $main-color-1;
+
+    @media screen and (max-width: $screen-md) {
+      font-size: 40px;
+      padding: 16px 0;
+      margin-bottom: 16px;
+    }
   }
 
   .sub-title {
     color: $main-color-1;
     font-size: $font-size-xxxl;
     margin-bottom: 16px;
+
+    @media screen and (max-width: $screen-md) {
+      margin-bottom: 8px;
+    }
   }
 
   .info {
@@ -94,18 +104,28 @@ import Signin from '@/components/Signin.vue'
     border-radius: 22px;
     margin-bottom: 32px;
 
+    @media screen and (max-width: $screen-md) {
+      padding: 16px;
+      margin-bottom: 16px;
+    }
+
     &--borderless {
       border: none;
     }
 
     &--grid {
       max-width: calc(50% - 64px);
+      min-width: 300px;
       min-height: 200px;
       margin: 16px;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+
+      @media screen and (max-width: $screen-md) {
+        margin: 8px;
+      }
     }
   }
 
