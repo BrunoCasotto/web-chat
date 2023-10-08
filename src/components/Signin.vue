@@ -1,15 +1,18 @@
 <template>
   <div class="login">
-    <button class="google-btn"></button>
+    <button @click="authStore.googleSignin" class="google-btn"></button>
   </div>
 </template>
 
 <script setup>
-
+import { onMounted } from 'vue';
+import { useAuthStore } from '../stores/auth'
+const authStore = useAuthStore()
 </script>
 
 <style lang="scss" scoped>
 @import '../assets/scss/vars.scss';
+
 .login {
   padding: 32px;
   background: $main-color-1;
@@ -18,6 +21,7 @@
   @media screen and (max-width: $screen-md) {
     padding: 16px;
   }
+
   .title {
     font-size: 40px;
     color: $neutral-color-1;

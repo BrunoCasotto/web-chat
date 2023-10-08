@@ -15,7 +15,6 @@ import SideMenu from '@/components/SideMenu.vue'
 import ChatContent from '@/components/ChatContent.vue'
 import ChatCard from '@/components/ChatCard.vue'
 import { onMounted } from 'vue';
-import { app } from '../gateways/firebase.gateway.http'
 import { getDatabase, ref, onValue } from "firebase/database";
 
 const db = getDatabase();
