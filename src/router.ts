@@ -18,6 +18,7 @@ export const router = createRouter({
   history: createWebHistory(),
   routes,
 })
+
 // @ts-ignore
 router.beforeResolve(async (to, from, next) => {
   if (to.name === 'chat') {

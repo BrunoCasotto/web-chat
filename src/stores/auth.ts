@@ -6,6 +6,7 @@ import {
   User,
   onAuthStateChanged,
 } from 'firebase/auth'
+import { router } from '../router'
 
 type AuthState = {
   user: User | null
@@ -23,6 +24,7 @@ export const useAuthStore = defineStore('auth', {
         const provider = new GoogleAuthProvider();
         const result = await signInWithPopup(auth, provider)
         this.$state.user = result.user
+        router.push('/chat')
       } catch (error) {
         console.error('googleSignin', error)
       }

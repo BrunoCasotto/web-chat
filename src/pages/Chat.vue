@@ -15,19 +15,14 @@ import SideMenu from '@/components/SideMenu.vue'
 import ChatContent from '@/components/ChatContent.vue'
 import ChatCard from '@/components/ChatCard.vue'
 import { useMenuStore } from '@/stores/menu.ts'
+import { useChatStore } from '../stores/chat.ts'
 import { onMounted } from 'vue';
-import { getDatabase, ref, onValue } from "firebase/database";
-
+const chatStore = useChatStore()
 const menuStore = useMenuStore()
 
-const db = getDatabase();
-const starCountRef = ref(db, 'chats/general');
-
-onValue(starCountRef, (snapshot) => {
-  const data = snapshot.val();
-  console.log(data)
-});
-
+onMounted(() => {
+  chatStore.fetchChatList()
+})
 </script>
 
 <style lang="scss" scoped>

@@ -8,7 +8,7 @@ export const useMenuStore = defineStore('menu', {
     active: false
   }),
   actions: {
-    async toggleMenu() {
+    toggleMenu() {
       this.$state.active = !this.$state.active
     }
   },
