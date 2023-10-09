@@ -1,7 +1,7 @@
 <template>
   <section class="chat-content">
     <div class="chat-content__header">
-      <ButtonMenu class="chat-content__menu-btn"/>
+      <ButtonMenu @click="menuStore.toggleMenu" class="chat-content__menu-btn"/>
       <h1 class="title">
         Nome do Chat aqui
       </h1>
@@ -17,6 +17,9 @@
 <script setup>
 import ButtonMenu from '@/components/ButtonMenu.vue'
 import UserInputMessage from '@/components/UserInputMessage.vue'
+import { useMenuStore } from '@/stores/menu.ts'
+
+const menuStore = useMenuStore()
 </script>
 
 <style lang="scss" scoped>

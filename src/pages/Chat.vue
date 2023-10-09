@@ -1,6 +1,6 @@
 <template>
   <div class="chat">
-    <SideMenu class="chat__menu">
+    <SideMenu class="chat__menu" :active="menuStore.active">
       <template v-for="n in 5">
         <ChatCard />
       </template>
@@ -14,8 +14,11 @@
 import SideMenu from '@/components/SideMenu.vue'
 import ChatContent from '@/components/ChatContent.vue'
 import ChatCard from '@/components/ChatCard.vue'
+import { useMenuStore } from '@/stores/menu.ts'
 import { onMounted } from 'vue';
 import { getDatabase, ref, onValue } from "firebase/database";
+
+const menuStore = useMenuStore()
 
 const db = getDatabase();
 const starCountRef = ref(db, 'chats/general');
