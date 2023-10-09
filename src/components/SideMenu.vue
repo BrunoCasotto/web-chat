@@ -1,7 +1,6 @@
 <template>
   <section class="side-menu">
     <div class="side-menu__header">
-      <ButtonMenu class="menu"/>
       <Search class="search"/>
     </div>
     <slot />
@@ -10,7 +9,6 @@
 
 <script setup>
 import Search from '@/components/Search.vue'
-import ButtonMenu from '@/components/ButtonMenu.vue'
 </script>
 
 <style lang="scss" scoped>
@@ -21,6 +19,16 @@ import ButtonMenu from '@/components/ButtonMenu.vue'
   height: 100vh;
   border-right: 1px solid $neutral-color-3;
   overflow-y: auto;
+
+  @media screen and (max-width: $screen-sm) {
+    position: absolute;
+    top: 0;
+    left: -300px;
+
+    &.active {
+      left: 0;
+    }
+  }
 
   &__header {
     display: flex;

@@ -39,6 +39,9 @@ onValue(starCountRef, (snapshot) => {
 
   &__content {
     width: 80%;
+    @media screen and (max-width: $screen-sm) {
+      width: 100%;
+    }
   }
 }
 </style>
