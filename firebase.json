@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "casotto-web-chat",
     "public": "dist",
     "ignore": [
       "firebase.json",
