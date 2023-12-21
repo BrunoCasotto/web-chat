@@ -75,7 +75,7 @@ import Signin from '@/components/Signin.vue'
   .title {
     font-weight: 600;
     font-size: 50px;
-    color: $main-color-1;
+    color: $theme-color-1;
     text-align: center;
     margin-bottom: 32px;
     display: flex;
@@ -100,7 +100,7 @@ import Signin from '@/components/Signin.vue'
   }
 
   .sub-title {
-    color: $main-color-1;
+    color: $theme-color-1;
     font-size: $font-size-xxxl;
     margin-bottom: 16px;
 
@@ -111,7 +111,7 @@ import Signin from '@/components/Signin.vue'
 
   .info {
     text-align: justify;
-    color: $main-color-5;
+    color: $theme-color-5;
     font-size: $font-size-lg;
   }
 
@@ -120,7 +120,7 @@ import Signin from '@/components/Signin.vue'
     max-width: 930px;
     margin: 0 auto;
     padding: 32px;
-    border: 1px solid $main-color-1;
+    border: 1px solid $theme-color-1;
     border-radius: 22px;
     margin-bottom: 32px;
 

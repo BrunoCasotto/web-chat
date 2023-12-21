@@ -30,7 +30,7 @@ const menuStore = useMenuStore()
     width: 100%;
     height: 100vh;
     position: relative;
-    background-color: $main-color-1;
+    background-color: $theme-color-1;
 
     &__menu-btn {
       position: absolute;

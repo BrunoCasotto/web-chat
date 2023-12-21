@@ -15,8 +15,8 @@ const authStore = useAuthStore()
 
 .login {
   padding: 32px;
-  background: $main-color-1;
-  background: linear-gradient(180deg, $main-color-1 50%, $neutral-color-1 100%);
+  background: $theme-color-1;
+  background: linear-gradient(180deg, $theme-color-1 50%, $neutral-color-1 100%);
 
   @media screen and (max-width: $screen-md) {
     padding: 16px;

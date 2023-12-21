@@ -32,13 +32,13 @@
     &__info {
       .title {
         font-size: $font-size-lg;
-        color: $main-color-4;
+        color: $theme-color-4;
         margin-bottom: 2px;
       }
 
       .preview {
         font-size: $font-size-md;
-        color: $main-color-5;
+        color: $theme-color-5;
         max-height: 40px;
         overflow: hidden;
         word-break: break-word;
