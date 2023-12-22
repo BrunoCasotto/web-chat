@@ -1,30 +1,33 @@
 import { defineStore } from 'pinia'
-import { getDatabase, ref, get } from "firebase/database";
-const db = getDatabase()
-const chatMenu = ref(db, 'chatMenu')
+import { getDatabase, ref, onValue, get, child, query } from 'firebase/database'
+const database = getDatabase()
 
-type ChatStore = {
-  chatMenu: Array<{
-    title: string
+interface Chat {
+  description: string
+}
+interface ChatStore {
+  chats: Array<{
+    title: string,
     description: string
   }>
 }
 
 export const useChatStore = defineStore('chat', {
   state: (): ChatStore => ({
-    chatMenu: []
+    chats: []
   }),
   actions: {
-    async fetchChatList() {
+    async listenChats() {
       try {
-        const snapshot = await get(chatMenu)
-        if (snapshot.exists()) {
-          this.$state.chatMenu = snapshot.val()
-        } else {
-          console.log("No data available");
-        }
+        const starCountRef = ref(database, 'chats/');
+        onValue(starCountRef, (snapshot) => {
+          const chats: Record<string, Chat> = snapshot.val();
+          if (chats) {
+            this.chats = Object.keys(chats).map(title => ({ title, ...chats[title] }))
+          }
+        });
       } catch (error) {
-        console.log(error)
+        this.chats = []
       }
     }
   },

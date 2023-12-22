@@ -2,16 +2,20 @@
   <section class="card">
     <div class="card__icon"></div>
     <div class="card__info">
-      <h2 class="title">Nome do grupo</h2>
+      <h2 class="title">{{ props.title }}</h2>
       <p class="preview">
-        Exemplo de uma mensagem enviada por ultimo no grupo ou sei la.
-        Exemplo de uma mensagem enviada por ultimo no grupo ou sei la.
+        {{ props.description }}
       </p>
     </div>
   </section>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+const props = defineProps({
+  title: String,
+  description: String
+})
+</script>
 
 <style lang="scss" scoped>
 @import '../assets/scss/vars.scss';
@@ -30,6 +34,7 @@
     }
 
     &__info {
+      flex: 1;
       .title {
         font-size: $font-size-lg;
         color: $theme-color-4;

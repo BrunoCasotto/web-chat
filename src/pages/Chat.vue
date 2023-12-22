@@ -1,8 +1,8 @@
 <template>
   <div class="chat">
     <SideMenu class="chat__menu" :active="menuStore.active">
-      <template v-for="n in 5">
-        <ChatCard />
+      <template v-for="(chat, index) in chatStore.chats">
+        <ChatCard :title="chat.title" :description="chat.description" @key="index"/>
       </template>
     </SideMenu>
 
@@ -21,7 +21,7 @@ const chatStore = useChatStore()
 const menuStore = useMenuStore()
 
 onMounted(() => {
-  chatStore.fetchChatList()
+  chatStore.listenChats()
 })
 </script>
 
