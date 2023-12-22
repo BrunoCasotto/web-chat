@@ -16,7 +16,7 @@ const authStore = useAuthStore()
 .login {
   padding: 32px;
   background: $theme-color-1;
-  background: linear-gradient(180deg, $theme-color-1 50%, $neutral-color-1 100%);
+  border-radius: 4px;
 
   @media screen and (max-width: $screen-md) {
     padding: 16px;
@@ -32,7 +32,6 @@ const authStore = useAuthStore()
       margin-bottom: 8px;
     }
   }
-
   .google-btn {
     display: block;
     cursor: pointer;
