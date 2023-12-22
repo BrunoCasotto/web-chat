@@ -2,7 +2,13 @@
   <div class="chat">
     <SideMenu class="chat__menu" :active="menuStore.active">
       <template v-for="(chat, index) in chatStore.chats">
-        <ChatCard :title="chat.title" :description="chat.description" @key="index"/>
+        <ChatCard
+          @click="chatStore.setCurrentChat(chat.title)"
+          :title="chat.title"
+          :description="chat.description"
+          :active="chat.title === chatStore.currentChat"
+          @key="index"
+        />
       </template>
     </SideMenu>
 

@@ -1,5 +1,5 @@
 <template>
-  <section class="card">
+  <section class="card" :class="{ 'active': active }">
     <div class="card__icon"></div>
     <div class="card__info">
       <h2 class="title">{{ props.title }}</h2>
@@ -13,7 +13,8 @@
 <script setup lang="ts">
 const props = defineProps({
   title: String,
-  description: String
+  description: String,
+  active: Boolean
 })
 </script>
 
@@ -29,7 +30,7 @@ const props = defineProps({
     align-items: center;
     cursor: pointer;
 
-    &:hover, .active {
+    &:hover, &.active {
       background-color: $neutral-color-2;
     }
 
