@@ -1,31 +1,30 @@
 import { defineStore } from 'pinia'
 import { getDatabase, ref, onValue } from 'firebase/database'
+import type { Message, Chat } from '../domains/chat'
+
 const database = getDatabase()
 
-interface Chat {
-  description: string
-}
 interface ChatStore {
   currentChat: string,
-  chats: Array<{
-    title: string,
-    description: string
-  }>
+  chats: Chat[],
+  messages: Message[]
 }
 
 export const useChatStore = defineStore('chat', {
   state: (): ChatStore => ({
     currentChat: '',
-    chats: []
+    chats: [],
+    messages: []
   }),
   actions: {
     setCurrentChat(chat: string) {
       this.currentChat = chat
+      this.listenMessages(chat)
     },
     async listenChats() {
       try {
-        const starCountRef = ref(database, 'chats/');
-        onValue(starCountRef, (snapshot) => {
+        const chatRef = ref(database, 'chats/');
+        onValue(chatRef, (snapshot) => {
           const chats: Record<string, Chat> = snapshot.val();
           if (chats) {
             this.chats = Object.keys(chats).map(title => ({ title, ...chats[title] }))
@@ -34,6 +33,19 @@ export const useChatStore = defineStore('chat', {
       } catch (error) {
         this.chats = []
       }
-    }
+    },
+    async listenMessages(chat: string) {
+      try {
+        console.log('CALLED', `messages/${chat}`)
+
+        const MessageRef = ref(database, `messages/${chat}`);
+        onValue(MessageRef, (snapshot) => {
+          const messages = snapshot.val();
+          console.log(messages)
+        });
+      } catch (error) {
+        this.messages = []
+      }
+    },
   },
 })

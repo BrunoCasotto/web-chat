@@ -2,14 +2,12 @@
   <section class="chat-content">
     <div class="chat-content__header">
       <ButtonMenu @click="menuStore.toggleMenu" class="chat-content__menu-btn"/>
-      <h1 class="title">
-        Nome do Chat aqui
-      </h1>
+      <h1 class="title"> {{ props.title }} </h1>
     </div>
     <slot></slot>
 
-    <div class="user-input">
-      <UserInputMessage class="user-input__input"/>
+    <div class="chat-content__input-wrapper">
+      <slot name="input"></slot>
     </div>
   </section>
 </template>
@@ -18,6 +16,10 @@
 import ButtonMenu from '@/components/ButtonMenu.vue'
 import UserInputMessage from '@/components/UserInputMessage.vue'
 import { useMenuStore } from '@/stores/menu.ts'
+
+const props = defineProps({
+  title: String,
+})
 
 const menuStore = useMenuStore()
 </script>
@@ -66,7 +68,8 @@ const menuStore = useMenuStore()
       }
     }
 
-    .user-input {
+    &__input-wrapper {
+      position: absolute;
       display: flex;
       padding: 0 16px;
       align-items: center;
@@ -76,11 +79,6 @@ const menuStore = useMenuStore()
       transform: translateX(-50%);
       bottom: 32px;
       width: 100%;
-
-      &__input {
-        width: 100%;
-        max-width: 600px;
-      }
     }
   }
 </style>
