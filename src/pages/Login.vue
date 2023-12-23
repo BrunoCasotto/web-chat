@@ -26,16 +26,16 @@ import Signin from '@/components/Signin.vue'
 @import '../assets/scss/vars.scss';
 
 .wellcome {
-  padding-top: 16px;
+  padding-top: $space-xl;
   min-height: 100vh;
   width: 100%;
 
   @media screen and (max-width: $screen-md) {
-    padding-top: 8px;
+    padding-top: $space-lg;
   }
 
   &__signin {
-    margin-bottom: 32px;
+    margin-bottom: $space-xxl;
     @media screen and (max-width: $screen-md) {
       margin-bottom: 0px;
     }
@@ -45,7 +45,7 @@ import Signin from '@/components/Signin.vue'
     font-size: 50px;
     color: $theme-color-1;
     text-align: center;
-    margin-bottom: 32px;
+    margin-bottom: $space-xxl;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -58,22 +58,22 @@ import Signin from '@/components/Signin.vue'
       background-image: url('./../assets/images/send.svg');
       background-repeat: no-repeat;
       background-size: contain;
-      margin-left: 10px;
+      margin-left: $space-lg;
     }
 
     @media screen and (max-width: $screen-md) {
       font-size: 40px;
-      margin-bottom: 8px;
+      margin-bottom: $space-lg;
     }
   }
 
   .sub-title {
     color: $theme-color-1;
     font-size: $font-size-xxxl;
-    margin-bottom: 16px;
+    margin-bottom: $space-xl;
 
     @media screen and (max-width: $screen-md) {
-      margin-bottom: 4px;
+      margin-bottom: $space-sm;
     }
   }
 
@@ -90,11 +90,11 @@ import Signin from '@/components/Signin.vue'
     padding: 16px;
     border: 1px solid $theme-color-1;
     border-radius: 22px;
-    margin-bottom: 16px;
+    margin-bottom: $space-xl;
 
     @media screen and (max-width: $screen-md) {
-      padding: 16px;
-      margin-bottom: 8px;
+      padding: $space-xl;
+      margin-bottom: $space-lg;
     }
 
     &--borderless {

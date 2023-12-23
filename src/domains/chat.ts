@@ -1,10 +1,11 @@
 export interface Chat {
-  title?: string,
+  title?: string
   description: string
 }
 
 export interface Message {
-  content: string,
-  date: string,
-  sender: string,
+  content: string
+  date: string
+  sender: string
+  userId: string
 }

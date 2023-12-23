@@ -14,22 +14,22 @@ const authStore = useAuthStore()
 @import '../assets/scss/vars.scss';
 
 .login {
-  padding: 32px;
+  padding: $space-xxl;
   background: $theme-color-1;
   border-radius: 4px;
 
   @media screen and (max-width: $screen-md) {
-    padding: 16px;
+    padding: $space-xl;
   }
 
   .title {
     font-size: 40px;
     color: $neutral-color-1;
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: $space-xl;
 
     @media screen and (max-width: $screen-md) {
-      margin-bottom: 8px;
+      margin-bottom: $space-lg;
     }
   }
   .google-btn {

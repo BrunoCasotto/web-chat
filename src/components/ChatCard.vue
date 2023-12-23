@@ -24,7 +24,7 @@ const props = defineProps({
   .card {
     height: 72px;
     width: 100%;
-    padding: 16px 12px;
+    padding: $space-xl $space-lg;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +39,7 @@ const props = defineProps({
       .title {
         font-size: $font-size-lg;
         color: $theme-color-4;
-        margin-bottom: 2px;
+        margin-bottom: $space-sm;
       }
 
       .preview {
@@ -57,7 +57,7 @@ const props = defineProps({
       border-radius: 50%;
       background-color: $neutral-color-2;
       border: 1px solid $neutral-color-3;
-      margin-right: 16px;
+      margin-right: $space-xl;
     }
   }
 </style>

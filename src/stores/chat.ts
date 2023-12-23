@@ -36,12 +36,10 @@ export const useChatStore = defineStore('chat', {
     },
     async listenMessages(chat: string) {
       try {
-        console.log('CALLED', `messages/${chat}`)
-
         const MessageRef = ref(database, `messages/${chat}`);
         onValue(MessageRef, (snapshot) => {
-          const messages = snapshot.val();
-          console.log(messages)
+          const messages: Array<Message> = snapshot.val();
+          this.messages = messages
         });
       } catch (error) {
         this.messages = []

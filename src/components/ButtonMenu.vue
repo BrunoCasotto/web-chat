@@ -14,9 +14,8 @@
   @import'./../assets/scss/vars';
 
   .button-menu {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     border: none;
     background-color: $neutral-color-1;
     cursor: pointer;

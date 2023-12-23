@@ -30,7 +30,7 @@ const menuStore = useMenuStore()
     position: absolute;
     top: 0;
     left: -300px;
-    z-index: 1;
+    z-index: 2;
   }
 
   &.active {
@@ -41,18 +41,18 @@ const menuStore = useMenuStore()
     display: flex;
     align-items: center;
     height: 56px;
-    padding: 8px 16px;
+    padding: $space-md $space-lg;
     border-bottom: 1px solid $neutral-color-3;
-    margin-bottom: 16px;
+    margin-bottom: $space-lg;
     @media screen and (max-width: $screen-sm) {
-      padding: 4px 8px;
+      padding: $space-sm $space-md;
     }
   }
 
   .close {
     display: none;
     min-width: 40px;
-    margin-right: 8px;
+    margin-right: $space-md;
 
     @media screen and (max-width: $screen-sm) {
       display: block;

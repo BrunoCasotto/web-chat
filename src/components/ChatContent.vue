@@ -1,10 +1,12 @@
 <template>
   <section class="chat-content">
     <div class="chat-content__header">
-      <ButtonMenu @click="menuStore.toggleMenu" class="chat-content__menu-btn"/>
       <h1 class="title"> {{ props.title }} </h1>
     </div>
-    <slot></slot>
+
+    <div class="chat-content__messages">
+      <slot name="messages"></slot>
+    </div>
 
     <div class="chat-content__input-wrapper">
       <slot name="input"></slot>
@@ -13,72 +15,86 @@
 </template>
 
 <script setup>
-import ButtonMenu from '@/components/ButtonMenu.vue'
 import UserInputMessage from '@/components/UserInputMessage.vue'
-import { useMenuStore } from '@/stores/menu.ts'
 
 const props = defineProps({
   title: String,
 })
-
-const menuStore = useMenuStore()
 </script>
 
 <style lang="scss" scoped>
 @import '../assets/scss/vars.scss';
+$chat-height: 100vh;
+$header-height: 56px;
+$message-input-height: 72px;
 
-  .chat-content {
-    position: relative;
+.chat-content {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: $chat-height;
+  background-color: $theme-color-1;
+
+  &__header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     width: 100%;
-    height: 100vh;
-    position: relative;
-    background-color: $theme-color-1;
+    height: $header-height;
+    border-bottom: 1px solid $neutral-color-3;
+    padding-left: $space-xl;
+    background-color: $neutral-color-1;
 
-    &__menu-btn {
-      position: absolute;
-      left: 8px;
-      display: none;
-
-      @media screen and (max-width: $screen-sm) {
-        display: block;
-      }
+    @media screen and (max-width: $screen-sm) {
+      padding-left: 8px;
     }
 
-    &__header {
-      width: 100%;
-      height: 56px;
-      background-color: $neutral-color-1;
-      border-bottom: 1px solid $neutral-color-3;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      padding-left: 32px;
+    .title {
+      font-size: $font-size-xxxl;
+      color: $neutral-color-4;
+      font-weight: 600;
+
       @media screen and (max-width: $screen-sm) {
-        padding-left: 8px;
+        text-align: center;
+        width: 100%;
       }
-
-      .title {
-        font-size: $font-size-xxxl;
-        color: $neutral-color-4;
-        font-weight: 600;
-        @media screen and (max-width: $screen-sm) {
-          text-align: center;
-          width: 100%;
-        }
-      }
-    }
-
-    &__input-wrapper {
-      position: absolute;
-      display: flex;
-      padding: 0 16px;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 32px;
-      width: 100%;
     }
   }
+
+  &__input-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: $message-input-height;
+    padding: 0 $space-lg $space-xl $space-lg;
+  }
+
+  &__messages {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    padding: $space-xl;
+    overflow-y: scroll;
+    height: calc(#{$chat-height} - #{$message-input-height + $header-height});
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+      margin: $space-sm;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $theme-color-1;
+      border: 1px solid $theme-color-1;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $neutral-color-1;
+      border-radius: 4px;
+      margin: $space-sm;
+    }
+  }
+}
 </style>
