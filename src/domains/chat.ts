@@ -1,5 +1,6 @@
 export interface Chat {
   title?: string
+  main?: boolean,
   description: string
 }
 

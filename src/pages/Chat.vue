@@ -2,9 +2,9 @@
   <div class="chat">
     <ButtonMenu @click="menuStore.toggleMenu" class="menu-btn" />
 
-    <SideMenu class="chat__menu" :active="menuStore.active">
+    <SideMenu class="chat__menu" :active="menuStore.active" :onCloseClick="onChatCloseClick">
       <template v-for="(chat, index) in chatStore.chats">
-        <ChatCard @click="chatStore.setCurrentChat(chat.title)" :title="chat.title" :description="chat.description"
+        <ChatCard @click="onSelectChat(chat)" :title="chat.title" :description="chat.description"
           :active="chat.title === chatStore.currentChat" @key="index" />
       </template>
     </SideMenu>
@@ -48,8 +48,18 @@ const onSendMessage = () => {
   message.value = ''
 }
 
-onMounted(() => {
-  chatStore.listenChats()
+const onChatCloseClick = () => {
+  menuStore.toggleMenu()
+}
+
+const onSelectChat = (chat) => {
+  chatStore.setCurrentChat(chat.title)
+  menuStore.toggleMenu()
+}
+
+onMounted(async () => {
+  await chatStore.listenChats()
+  chatStore.selectMainChat()
 })
 </script>
 

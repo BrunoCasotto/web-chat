@@ -1,7 +1,7 @@
 <template>
   <section class="side-menu" :class="{ 'active': props.active }">
     <div class="side-menu__header">
-      <CloseButton @click="menuStore.toggleMenu" class="close"/>
+      <CloseButton @click="onCloseClick" class="close"/>
       <Search class="search"/>
     </div>
     <slot />
@@ -11,9 +11,11 @@
 <script setup>
 import Search from '@/components/Search.vue'
 import CloseButton from '@/components/CloseButton.vue'
-import { useMenuStore } from '@/stores/menu.ts'
-const props = defineProps(['active'])
-const menuStore = useMenuStore()
+
+const props = defineProps({
+  active: Boolean,
+  onCloseClick: Function
+})
 </script>
 
 <style lang="scss" scoped>

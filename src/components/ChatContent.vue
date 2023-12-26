@@ -1,6 +1,6 @@
 <template>
   <section class="chat-content">
-    <div class="chat-content__header">
+    <div v-if="props.title" class="chat-content__header">
       <h1 class="title"> {{ props.title }} </h1>
     </div>
 
@@ -58,7 +58,7 @@ const props = defineProps({
 <style lang="scss" scoped>
 @import '../assets/scss/vars.scss';
 $chat-height: 100vh;
-$header-height: 56px;
+$header-height: 40px;
 $message-input-height: 72px;
 
 .chat-content {
@@ -70,16 +70,21 @@ $message-input-height: 72px;
   background-color: $theme-color-1;
 
   &__header {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%);
+    z-index: 1;
     height: $header-height;
-    border-bottom: 1px solid $neutral-color-3;
-    padding-left: $space-xl;
+    min-width: 300px;
+    padding: 0 $space-xl;
+    border: 1px solid $neutral-color-3;
+    border-bottom-right-radius: $header-height;
+    border-bottom-left-radius: $header-height;
     background-color: $neutral-color-1;
 
     @media screen and (max-width: $screen-sm) {
+      min-width: 200px;
       padding-left: 8px;
     }
 
@@ -87,11 +92,7 @@ $message-input-height: 72px;
       font-size: $font-size-xxxl;
       color: $neutral-color-4;
       font-weight: 600;
-
-      @media screen and (max-width: $screen-sm) {
-        text-align: center;
-        width: 100%;
-      }
+      text-align: center;
     }
   }
 
@@ -108,7 +109,7 @@ $message-input-height: 72px;
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: calc(#{$chat-height} - #{$message-input-height + $header-height});
+    height: calc(#{$chat-height} - #{$message-input-height});
     padding: $space-xl;
     overflow-y: scroll;
 

@@ -17,8 +17,12 @@
     width: 50px;
     height: 50px;
     border: none;
-    background-color: $neutral-color-1;
     cursor: pointer;
+
+    @media screen and (max-width: $screen-sm) {
+      border-radius: 4px;
+      margin: $space-md;
+    }
 
     svg {
       width: 100%;
