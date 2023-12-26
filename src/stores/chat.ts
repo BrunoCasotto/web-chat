@@ -1,6 +1,17 @@
 import { defineStore } from 'pinia'
-import { getDatabase, ref, onValue } from 'firebase/database'
+import {
+  getDatabase,
+  ref,
+  onValue,
+  push,
+  set,
+  query,
+  orderByValue,
+  orderByChild,
+} from 'firebase/database'
 import type { Message, Chat } from '../domains/chat'
+import { useAuthStore } from './auth'
+
 
 const database = getDatabase()
 
@@ -36,7 +47,7 @@ export const useChatStore = defineStore('chat', {
     },
     async listenMessages(chat: string) {
       try {
-        const MessageRef = ref(database, `messages/${chat}`);
+        const MessageRef = query(ref(database, `messages/${chat}`), orderByChild('date'));
         onValue(MessageRef, (snapshot) => {
           const messages: Array<Message> = snapshot.val();
           this.messages = messages
@@ -45,5 +56,19 @@ export const useChatStore = defineStore('chat', {
         this.messages = []
       }
     },
+    async postMessage(content: string) {
+      const authStore = useAuthStore()
+      const MessageRef = ref(database, `messages/${this.currentChat}`)
+      const NewMessageRef = push(MessageRef)
+
+      const message: Message = {
+        content,
+        date: Date.now().toString(),
+        sender: authStore.user?.displayName || '',
+        userId: authStore.user?.uid || ''
+      }
+
+      set(NewMessageRef, message)
+    }
   },
 })

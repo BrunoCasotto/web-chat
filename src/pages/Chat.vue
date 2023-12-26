@@ -21,7 +21,7 @@
       </template>
 
       <template v-slot:input>
-        <UserInputMessage class="user-input"/>
+        <UserInputMessage @click="onSendMessage" v-model="message" class="user-input"/>
       </template>
     </ChatContent>
   </div>
@@ -34,17 +34,22 @@ import UserInputMessage from '@/components/UserInputMessage.vue'
 import Message from '@/components/Message.vue'
 import ChatCard from '@/components/ChatCard.vue'
 import ButtonMenu from '@/components/ButtonMenu.vue'
+import { onMounted, ref } from 'vue';
 import { useMenuStore } from '@/stores/menu.ts'
 import { useChatStore } from '../stores/chat.ts'
-import { onMounted } from 'vue';
 import { useAuthStore } from '../stores/auth'
 const chatStore = useChatStore()
 const menuStore = useMenuStore()
 const authStore = useAuthStore()
 
+const message = ref()
+const onSendMessage = () => {
+  chatStore.postMessage(message.value)
+  message.value = ''
+}
+
 onMounted(() => {
   chatStore.listenChats()
-  chatStore.listenMessages('General')
 })
 </script>
 
