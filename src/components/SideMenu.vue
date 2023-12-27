@@ -45,6 +45,7 @@ const props = defineProps({
     padding: $space-lg;
     border-bottom: 1px solid var(--neutral-color-3);
     margin-bottom: $space-lg;
+    background-color: var(--neutral-color-1);
   }
 
   .close {
