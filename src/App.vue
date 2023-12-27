@@ -36,7 +36,9 @@
 
   onMounted(() => {
     const savedTheme = getSavedTheme()
-    currentTheme.value = savedTheme && savedTheme
+    if (savedTheme) {
+      currentTheme.value = savedTheme
+    }
   })
 </script>
 
