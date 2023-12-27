@@ -1,34 +1,35 @@
 <template>
   <div class="container" :class="currentTheme">
-    <ThemeButton @click="toggleTheme" class="container__theme-btn" />
+    <ThemeToggle
+      @click="toggleTheme"
+      :active="currentTheme === DARK_CLASS"
+      class="container__theme-btn"
+      />
     <RouterView></RouterView>
   </div>
 </template>
 
 <script setup lang="ts">
-  import ThemeButton from './components/ThemeButton.vue'
+  import ThemeToggle from './components/ThemeToggle.vue'
   import { onMounted, ref } from 'vue';
-  enum Themes {
-    LIGHT = 'light-theme',
-    DARK = 'dark-theme'
-  }
+
+  const DARK_CLASS = 'dark-theme'
   const LOCAL_STORAGE_THEME_KEY = 'web-chat-theme'
-  let currentTheme = ref(Themes.LIGHT)
+  let currentTheme = ref('')
 
-
-  const saveTheme = (theme: Themes) => {
+  const saveTheme = (theme: string) => {
     localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
   }
 
-  const getSavedTheme = (): Themes => {
-    return localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Themes
+  const getSavedTheme = (): string | null => {
+    return localStorage.getItem(LOCAL_STORAGE_THEME_KEY)
   }
 
   const toggleTheme = () => {
-    if (currentTheme.value === Themes.LIGHT) {
-      currentTheme.value = Themes.DARK
+    if (currentTheme.value === DARK_CLASS) {
+      currentTheme.value = ''
     } else {
-      currentTheme.value = Themes.LIGHT
+      currentTheme.value = DARK_CLASS
     }
 
     saveTheme(currentTheme.value)
@@ -50,7 +51,7 @@
     &__theme-btn {
       z-index: 1;
       position: fixed;
-      right: 10px;
+      right: 20px;
       top: 10px;
     }
   }

@@ -1,15 +1,10 @@
 <template>
   <div class="wellcome">
-    <h1 class="title">Byte Papo</h1>
+    <h1 class="title">Web chat</h1>
 
     <div class="card card--borderless">
-      <h2 class="sub-title">Bem-vindo ao Byte Papo</h2>
-      <p class="info">
-        O Seu Espaço de Conversa Online! Explore um mundo virtual de interação e diálogo com pessoas de todo o Brasil e
-        além. Conecte-se, compartilhe, e faça novas amizades enquanto discute os tópicos que mais importam para você.
-        Nosso chat oferece salas diversificadas, uma comunidade acolhedora e uma plataforma fácil de usar. Junte-se a nós
-        hoje e comece a conversar!
-      </p>
+      <h2 class="sub-title">Wellcome to Web chat</h2>
+      <p class="info"></p>
     </div>
 
     <div class="card card--borderless">
