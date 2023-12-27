@@ -28,7 +28,7 @@
   width: 30px;
   height: 30px;
   background-color: var(--background-secondary);
-  border: none;
+  border: 1px solid var(--theme-color);
   border-radius: 4px;
   cursor: pointer;
 }

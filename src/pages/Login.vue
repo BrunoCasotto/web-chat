@@ -24,6 +24,7 @@ import Signin from '@/components/Signin.vue'
   padding-top: $space-xl;
   min-height: 100vh;
   width: 100%;
+  background-color: var(--background);
 
   @media screen and (max-width: $screen-md) {
     padding-top: $space-lg;

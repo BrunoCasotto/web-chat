@@ -33,6 +33,7 @@ export const useAuthStore = defineStore('auth', {
     async googleSignout() {
       const auth = getAuth()
       signOut(auth).then(() => {
+        this.user = null
         router.push('/')
       })
     },

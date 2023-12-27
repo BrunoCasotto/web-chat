@@ -15,7 +15,8 @@ const authStore = useAuthStore()
 
 .login {
   padding: $space-xxl;
-  background: var(--theme-color);
+  border: 1px solid var(--theme-color);
+  background-color: var(--background-secondary);
   border-radius: 4px;
 
   @media screen and (max-width: $screen-md) {

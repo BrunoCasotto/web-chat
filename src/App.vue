@@ -6,7 +6,7 @@
         :active="themeStore.currentTheme === themeStore.DARK_CLASS"
         class="theme"
       />
-      <Logout :onClick="authStore.googleSignout"/>
+      <Logout v-if="authStore.user" :onClick="authStore.googleSignout"/>
     </div>
 
     <RouterView></RouterView>
