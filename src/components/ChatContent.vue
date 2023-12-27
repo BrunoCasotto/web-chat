@@ -91,6 +91,7 @@ $message-input-height: 72px;
     border-bottom-right-radius: $header-height;
     border-bottom-left-radius: $header-height;
     background-color: var(--background);
+    border-top: none;
 
     @media screen and (max-width: $screen-sm) {
       min-width: 200px;

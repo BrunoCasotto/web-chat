@@ -6,7 +6,11 @@
         :active="themeStore.currentTheme === themeStore.DARK_CLASS"
         class="theme"
       />
-      <Logout v-if="authStore.user" :onClick="authStore.googleSignout"/>
+      <Logout
+        class="signout"
+        v-if="authStore.user"
+        :onClick="authStore.googleSignout"
+      />
     </div>
 
     <RouterView></RouterView>
@@ -37,13 +41,28 @@
       z-index: 1;
       position: fixed;
       right: 20px;
-      top: 10px;
+      top: 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
 
+
+      @media screen and (max-width: $screen-md) {
+        flex-direction: column;
+      }
+
+      .signout {
+        @media screen and (max-width: $screen-md) {
+          margin-top: $space-lg;
+        }
+      }
+
       .theme {
         margin-right: $space-lg;
+
+        @media screen and (max-width: $screen-md) {
+          margin-right: 0;
+        }
       }
     }
   }

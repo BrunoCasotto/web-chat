@@ -4,10 +4,6 @@
 
     <div class="card card--borderless">
       <h2 class="sub-title">Wellcome to Web chat</h2>
-      <p class="info"></p>
-    </div>
-
-    <div class="card card--borderless">
       <Signin class="wellcome__signin"/>
     </div>
   </div>
