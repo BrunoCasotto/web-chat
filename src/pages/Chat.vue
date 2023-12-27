@@ -21,7 +21,7 @@
       </template>
 
       <template v-slot:input>
-        <UserInputMessage @click="onSendMessage" v-model="message" class="user-input"/>
+        <UserInputMessage :onSendClick="onSendMessage" v-model="message" class="user-input"/>
       </template>
     </ChatContent>
   </div>
@@ -42,10 +42,12 @@ const chatStore = useChatStore()
 const menuStore = useMenuStore()
 const authStore = useAuthStore()
 
-const message = ref()
+const message = ref('')
 const onSendMessage = () => {
-  chatStore.postMessage(message.value)
-  message.value = ''
+  if (message.value.length > 0) {
+    chatStore.postMessage(message.value)
+    message.value = ''
+  }
 }
 
 const onChatCloseClick = () => {

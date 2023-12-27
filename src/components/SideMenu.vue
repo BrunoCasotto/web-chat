@@ -42,13 +42,9 @@ const props = defineProps({
   &__header {
     display: flex;
     align-items: center;
-    height: 56px;
-    padding: $space-md $space-lg;
+    padding: $space-lg;
     border-bottom: 1px solid var(--neutral-color-3);
     margin-bottom: $space-lg;
-    @media screen and (max-width: $screen-sm) {
-      padding: $space-sm $space-md;
-    }
   }
 
   .close {

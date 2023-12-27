@@ -6,12 +6,13 @@
       placeholder="Your message here"
       type="text"
       :value="modelValue"
+      @keyup.enter="props.onSendClick"
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       @change="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       @blur="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       @focus="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
     >
-    <button class="message-input__send" @click="(event) => $emit('click', event)">
+    <button class="message-input__send" @click="props.onSendClick">
       <img class="message-input__icon" src="./../assets/images/send.svg" alt="">
     </button>
   </div>
@@ -22,16 +23,18 @@ import { type InputHTMLAttributes } from 'vue';
 
 interface Props extends /** @vue-ignore */ InputHTMLAttributes {
   modelValue?: string;
+  onSendClick: Function;
 }
-
-withDefaults(defineProps<Props>(), {
-  modelValue: '',
-});
-
 
 defineOptions({
   name: 'UserInputMessage'
 });
+
+const props = withDefaults(defineProps<Props>(), {
+  modelValue: '',
+  onSendClick: () => {}
+});
+
 
 defineEmits<{
   (e: 'update:modelValue', value: string): void;
