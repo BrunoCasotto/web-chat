@@ -54,8 +54,8 @@ defineEmits<{
     width: 40px;
     height: 40px;
     border: none;
-    background-color: var(--background-secondary);
     cursor: pointer;
+    background-color: var(--background);
   }
 
   &__input {
