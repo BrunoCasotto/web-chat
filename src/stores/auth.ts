@@ -5,6 +5,7 @@ import {
   GoogleAuthProvider,
   User,
   onAuthStateChanged,
+  signOut
 } from 'firebase/auth'
 import { router } from '../router'
 
@@ -28,6 +29,12 @@ export const useAuthStore = defineStore('auth', {
       } catch (error) {
         console.error('googleSignin', error)
       }
+    },
+    async googleSignout() {
+      const auth = getAuth()
+      signOut(auth).then(() => {
+        router.push('/')
+      })
     },
     async isAuthenticated() {
       return new Promise((resolve) => {

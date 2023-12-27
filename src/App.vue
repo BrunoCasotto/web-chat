@@ -1,45 +1,30 @@
 <template>
-  <div class="container" :class="currentTheme">
-    <ThemeToggle
-      @click="toggleTheme"
-      :active="currentTheme === DARK_CLASS"
-      class="container__theme-btn"
+  <div class="container" :class="themeStore.currentTheme">
+    <div class="container__config">
+      <ThemeToggle
+        @click="themeStore.toggleTheme"
+        :active="themeStore.currentTheme === themeStore.DARK_CLASS"
+        class="theme"
       />
+      <Logout :onClick="authStore.googleSignout"/>
+    </div>
+
     <RouterView></RouterView>
   </div>
 </template>
 
 <script setup lang="ts">
   import ThemeToggle from './components/ThemeToggle.vue'
-  import { onMounted, ref } from 'vue';
+  import Logout from './components/Logout.vue'
+  import { onMounted } from 'vue';
+  import { useThemeStore } from './stores/theme';
+  import { useAuthStore } from './stores/auth';
 
-  const DARK_CLASS = 'dark-theme'
-  const LOCAL_STORAGE_THEME_KEY = 'web-chat-theme'
-  let currentTheme = ref('')
-
-  const saveTheme = (theme: string) => {
-    localStorage.setItem(LOCAL_STORAGE_THEME_KEY, theme)
-  }
-
-  const getSavedTheme = (): string | null => {
-    return localStorage.getItem(LOCAL_STORAGE_THEME_KEY)
-  }
-
-  const toggleTheme = () => {
-    if (currentTheme.value === DARK_CLASS) {
-      currentTheme.value = ''
-    } else {
-      currentTheme.value = DARK_CLASS
-    }
-
-    saveTheme(currentTheme.value)
-  }
+  const themeStore = useThemeStore()
+  const authStore = useAuthStore()
 
   onMounted(() => {
-    const savedTheme = getSavedTheme()
-    if (savedTheme) {
-      currentTheme.value = savedTheme
-    }
+    themeStore.fetchTheme()
   })
 </script>
 
@@ -48,11 +33,18 @@
   .container {
     width: 100%;
 
-    &__theme-btn {
+    &__config {
       z-index: 1;
       position: fixed;
       right: 20px;
       top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .theme {
+        margin-right: $space-lg;
+      }
     }
   }
 </style>

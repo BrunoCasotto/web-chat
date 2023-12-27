@@ -1,7 +1,10 @@
 <template>
   <section class="chat-content">
-    <div v-if="props.title" class="chat-content__header">
-      <h1 class="title"> {{ props.title }} </h1>
+
+    <div v-if="props.title" class="header">
+      <div class="notch">
+        <h1 class="title"> {{ props.title }} </h1>
+      </div>
     </div>
 
     <div class="chat-content__messages" ref="messageList">
@@ -68,7 +71,14 @@ $message-input-height: 72px;
   height: $chat-height;
   background-color: var(--background);
 
-  &__header {
+  .header {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .notch {
     position: absolute;
     top: 0;
     left: 50%;
