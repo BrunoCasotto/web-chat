@@ -27,8 +27,14 @@
     padding: 8px 16px;
     padding-left: 35px;
     border-radius: 22px;
-    background-color: $neutral-color-2;
-    border: 1px solid $neutral-color-3;
+    background-color: var(--background-secondary);
+    border: 1px solid var(--neutral-color-3);
+    color: var(--font-color-primary);
+
+    &::placeholder {
+      color: var(--font-color);
+      opacity: 1; /* Firefox */
+    }
   }
 }
 </style>

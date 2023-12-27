@@ -21,7 +21,7 @@
   height: 40px;
   border-radius: 50%;
   border: none;
-  background-color: $neutral-color-1;
+  background-color: var(--neutral-color-1);
   cursor: pointer;
 }
 </style>

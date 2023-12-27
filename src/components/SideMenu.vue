@@ -24,8 +24,8 @@ const props = defineProps({
   width: 100%;
   min-width: 300px;
   height: 100vh;
-  background-color: $neutral-color-1;
-  border-right: 1px solid $neutral-color-3;
+  background-color: var(--background-secondary);
+  border-right: 1px solid var(--neutral-color-3);
   overflow-y: auto;
 
   @media screen and (max-width: $screen-sm) {
@@ -44,7 +44,7 @@ const props = defineProps({
     align-items: center;
     height: 56px;
     padding: $space-md $space-lg;
-    border-bottom: 1px solid $neutral-color-3;
+    border-bottom: 1px solid var(--neutral-color-3);
     margin-bottom: $space-lg;
     @media screen and (max-width: $screen-sm) {
       padding: $space-sm $space-md;

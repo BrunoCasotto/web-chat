@@ -15,7 +15,7 @@ const authStore = useAuthStore()
 
 .login {
   padding: $space-xxl;
-  background: $theme-color-1;
+  background: var(--theme-color);
   border-radius: 4px;
 
   @media screen and (max-width: $screen-md) {
@@ -24,7 +24,7 @@ const authStore = useAuthStore()
 
   .title {
     font-size: 40px;
-    color: $neutral-color-1;
+    color: var(--neutral-color-1);
     text-align: center;
     margin-bottom: $space-xl;
 

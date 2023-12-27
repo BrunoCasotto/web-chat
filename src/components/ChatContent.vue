@@ -20,7 +20,6 @@
 <script setup>
 import UserInputMessage from '@/components/UserInputMessage.vue'
 import { onMounted, ref } from 'vue';
-
 const messageList = ref(HTMLElement)
 const stopAutoScroll = ref(false)
 
@@ -67,7 +66,7 @@ $message-input-height: 72px;
   position: relative;
   width: 100%;
   height: $chat-height;
-  background-color: $theme-color-1;
+  background-color: var(--background);
 
   &__header {
     position: absolute;
@@ -78,10 +77,10 @@ $message-input-height: 72px;
     height: $header-height;
     min-width: 300px;
     padding: 0 $space-xl;
-    border: 1px solid $neutral-color-3;
+    border: 1px solid var(--theme-color);
     border-bottom-right-radius: $header-height;
     border-bottom-left-radius: $header-height;
-    background-color: $neutral-color-1;
+    background-color: var(--background);
 
     @media screen and (max-width: $screen-sm) {
       min-width: 200px;
@@ -90,7 +89,7 @@ $message-input-height: 72px;
 
     .title {
       font-size: $font-size-xxxl;
-      color: $neutral-color-4;
+      color: var(--theme-color);
       font-weight: 600;
       text-align: center;
     }
@@ -125,12 +124,12 @@ $message-input-height: 72px;
     }
 
     &::-webkit-scrollbar-track {
-      background: $theme-color-1;
-      border: 1px solid $theme-color-1;
+      background: var(--background-secondary);
+      border: 1px solid var(--background-secondary);
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: $neutral-color-1;
+      background-color: var(--theme-color);
       border-radius: 4px;
       margin: $space-sm;
     }

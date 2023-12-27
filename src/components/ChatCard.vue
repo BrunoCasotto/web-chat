@@ -29,22 +29,23 @@ const props = defineProps({
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+    color: var(--font-color-primary);
 
     &:hover, &.active {
-      background-color: $neutral-color-2;
+      border-right: 4px solid var(--theme-color);
     }
 
     &__info {
       flex: 1;
       .title {
         font-size: $font-size-lg;
-        color: $theme-color-4;
+        color: var(--theme-color);
         margin-bottom: $space-sm;
       }
 
       .preview {
         font-size: $font-size-md;
-        color: $theme-color-5;
+        color: var(--font-color);
         max-height: 40px;
         overflow: hidden;
         word-break: break-word;
@@ -55,8 +56,8 @@ const props = defineProps({
       min-width: 48px;
       height: 48px;
       border-radius: 50%;
-      background-color: $neutral-color-2;
-      border: 1px solid $neutral-color-3;
+      background-color: var(--neutral-color-2);
+      border: 1px solid var(--neutral-color-3);
       margin-right: $space-xl;
     }
   }

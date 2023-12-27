@@ -29,27 +29,14 @@
     justify-content: flex-start;
     width: 100%;
 
-    &.mine {
-      justify-content: flex-end;
-
-      .message__content {
-        color: $neutral-color-1;
-        background-color: $theme-color-2;
-      }
-
-      .message__info {
-        color: $neutral-color-1;
-      }
-    }
-
     &__content {
       position: relative;
       max-width: 70%;
       padding: $space-lg;
       border-radius: 4px;
       font-size: $font-size-md;
-      background-color: $neutral-color-2;
-      color: $neutral-color-6;
+      color: var(--font-color-primary);
+      background-color: var(--background-secondary);
     }
 
     &__title {
@@ -64,8 +51,24 @@
 
     &__info {
       text-align: right;
-      color: $neutral-color-4;
       font-size: $font-size-sm;
+      color: var(--font-color-secondary);
+    }
+
+    &.mine {
+      justify-content: flex-end;
+      .message__content {
+        color: var(--font-color-inverted);
+        background-color: var(--theme-color);
+      }
+
+      .message__info {
+        color: var(--font-color-inverted);
+      }
+
+      .message__title {
+        color: var(--font-color-inverted);
+      }
     }
   }
 </style>

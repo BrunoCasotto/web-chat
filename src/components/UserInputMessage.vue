@@ -47,20 +47,15 @@ defineEmits<{
   display: flex;
   overflow: hidden;
   height: 40px;
-  background-color: $neutral-color-2;
   border-radius: 22px;
-  border: 1px solid $neutral-color-3;
+  border: 1px solid var(--neutral-color-3);
 
   &__send {
     width: 40px;
     height: 40px;
     border: none;
-    background-color: $neutral-color-1;
+    background-color: var(--background-secondary);
     cursor: pointer;
-
-    &:hover {
-      background-color: $neutral-color-3;
-    }
   }
 
   &__input {
@@ -69,6 +64,13 @@ defineEmits<{
     padding: 8px 16px;
     padding-left: 16px;
     border: none;
+    background-color: var(--background);
+    color: var(--font-color-primary);
+
+    &::placeholder {
+      color: var(--font-color);
+      opacity: 1; /* Firefox */
+    }
   }
 }
 </style>
