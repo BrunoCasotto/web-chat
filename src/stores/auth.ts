@@ -7,9 +7,9 @@ import {
   onAuthStateChanged,
   signOut
 } from 'firebase/auth'
-import { router } from '../router'
+import { PAGES, router } from '../router'
 
-type AuthState = {
+interface AuthState {
   user: User | null
 }
 
@@ -23,19 +23,24 @@ export const useAuthStore = defineStore('auth', {
         const auth = getAuth();
         auth.languageCode = 'it'
         const provider = new GoogleAuthProvider();
-        const result = await signInWithPopup(auth, provider)
-        this.$state.user = result.user
-        router.push('/chat')
+        const { user } = await signInWithPopup(auth, provider)
+
+        this.$state.user = user
+        router.push({ name: PAGES.CHAT })
       } catch (error) {
-        console.error('googleSignin', error)
+        console.error(error)
       }
     },
-    async googleSignout() {
-      const auth = getAuth()
-      signOut(auth).then(() => {
+    async googleSignOut() {
+      try {
+        const auth = getAuth()
+        await signOut(auth)
+      } catch (error) {
+        console.error(error)
+      } finally {
         this.user = null
-        router.push('/')
-      })
+        router.push({ name: PAGES.HOME })
+      }
     },
     async isAuthenticated() {
       return new Promise((resolve) => {

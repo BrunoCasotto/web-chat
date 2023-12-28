@@ -10,15 +10,13 @@ import {
 } from 'firebase/database'
 import type { Message, Chat } from '../domains/chat'
 import { useAuthStore } from './auth'
-
-
-const database = getDatabase()
-
 interface ChatStore {
   currentChat: string,
   chats: Chat[],
   messages: Message[]
 }
+
+const database = getDatabase()
 
 export const useChatStore = defineStore('chat', {
   state: (): ChatStore => ({

@@ -9,7 +9,7 @@
 
       <LogoutButton
         v-if="authStore.user"
-        @click="authStore.googleSignout"
+        @click="authStore.googleSignOut"
         class="container__menu__button"
       />
     </div>
