@@ -21,12 +21,12 @@ const props = defineProps({
 <style lang="scss" scoped>
 @import '../assets/scss/vars.scss';
 .side-menu {
+  border-right: 1px solid var(--neutral-color-3);
+  overflow-y: auto;
   width: 100%;
   min-width: 300px;
   height: 100vh;
   background-color: var(--background-secondary);
-  border-right: 1px solid var(--neutral-color-3);
-  overflow-y: auto;
 
   @media screen and (max-width: $screen-sm) {
     position: absolute;

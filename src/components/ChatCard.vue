@@ -2,8 +2,8 @@
   <section class="card" :class="{ 'active': active }">
     <div class="card__icon"></div>
     <div class="card__info">
-      <h2 class="title">{{ props.title }}</h2>
-      <p class="preview">
+      <h2 class="card__info__title">{{ props.title }}</h2>
+      <p class="card__info__preview">
         {{ props.description }}
       </p>
     </div>
@@ -22,12 +22,12 @@ const props = defineProps({
 @import '../assets/scss/vars.scss';
 
   .card {
-    height: 72px;
-    width: 100%;
-    padding: $space-xl $space-lg;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: $space-xl $space-lg;
+    height: 72px;
+    width: 100%;
     cursor: pointer;
     color: var(--font-color-primary);
 
@@ -37,28 +37,29 @@ const props = defineProps({
 
     &__info {
       flex: 1;
-      .title {
+
+      &__title {
+        margin-bottom: $space-sm;
         font-size: $font-size-lg;
         color: var(--theme-color);
-        margin-bottom: $space-sm;
       }
 
-      .preview {
-        font-size: $font-size-md;
-        color: var(--font-color);
+      &__preview {
         max-height: 40px;
         overflow: hidden;
         word-break: break-word;
+        font-size: $font-size-md;
+        color: var(--font-color);
       }
     }
 
     &__icon {
-      min-width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background-color: var(--neutral-color-2);
-      border: 1px solid var(--neutral-color-3);
       margin-right: $space-xl;
+      border: 1px solid var(--neutral-color-3);
+      border-radius: 50%;
+      height: 48px;
+      min-width: 48px;
+      background-color: var(--neutral-color-2);
     }
   }
 </style>

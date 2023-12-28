@@ -1,7 +1,7 @@
 <template>
   <div class="message" :class="{ 'mine': isMine }">
     <div class="message__content">
-      <p class="message__title"> {{ message.sender }}:</p>
+      <p class="message__title">{{ message.sender }}:</p>
       <p class="message__text">{{ message.content }}</p>
       <p class="message__info">{{ message.date }}</p>
     </div>
@@ -31,18 +31,18 @@
 
     &__content {
       position: relative;
-      max-width: 70%;
       padding: $space-lg;
+      max-width: 70%;
       border-radius: 4px;
+      background-color: var(--background-secondary);
       font-size: $font-size-md;
       color: var(--font-color-primary);
-      background-color: var(--background-secondary);
     }
 
     &__title {
+      margin-bottom: $space-md;
       font-weight: bold;
       font-size: $font-size-md;
-      margin-bottom: $space-md;
     }
 
     &__text {

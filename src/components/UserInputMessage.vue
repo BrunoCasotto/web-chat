@@ -13,13 +13,14 @@
       @focus="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
     >
     <button class="message-input__send" @click="props.onSendClick">
-      <img class="message-input__icon" src="./../assets/images/send.svg" alt="">
+      <SendIcon />
     </button>
   </div>
 </template>
 
 <script setup lang="ts">
 import { type InputHTMLAttributes } from 'vue';
+import SendIcon from './icons/SendIcon.vue'
 
 interface Props extends /** @vue-ignore */ InputHTMLAttributes {
   modelValue?: string;

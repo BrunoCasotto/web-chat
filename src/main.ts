@@ -5,7 +5,7 @@ import '@/assets/scss/theme.scss'
 import '@/assets/scss/reset.scss'
 
 import { createPinia } from 'pinia'
-import { initializeFirebase } from './gateways/firebase.gateway.http'
+import { initializeFirebase } from './gateways/firebase.'
 
 initializeFirebase()
 

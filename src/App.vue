@@ -7,9 +7,9 @@
         class="container__menu__button"
       />
 
-      <Logout
+      <LogoutButton
         v-if="authStore.user"
-        :onClick="authStore.googleSignout"
+        @click="authStore.googleSignout"
         class="container__menu__button"
       />
     </div>
@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import ThemeToggle from './components/ThemeToggle.vue'
-import Logout from './components/Logout.vue'
+import LogoutButton from './components/LogoutButton.vue'
 import { onMounted } from 'vue';
 import { useThemeStore } from './stores/theme';
 import { useAuthStore } from './stores/auth';

@@ -84,18 +84,18 @@ $message-input-height: 72px;
     left: 50%;
     transform: translate(-50%);
     z-index: 1;
-    height: $header-height;
-    min-width: 300px;
     padding: 0 $space-xl;
     border: 1px solid var(--theme-color);
+    border-top: none;
     border-bottom-right-radius: $header-height;
     border-bottom-left-radius: $header-height;
+    height: $header-height;
+    min-width: 300px;
     background-color: var(--background);
-    border-top: none;
 
     @media screen and (max-width: $screen-sm) {
-      min-width: 200px;
       padding-left: 8px;
+      min-width: 200px;
     }
 
     .title {
@@ -110,18 +110,18 @@ $message-input-height: 72px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0 $space-lg $space-xl $space-lg;
     width: 100%;
     height: $message-input-height;
-    padding: 0 $space-lg $space-xl $space-lg;
   }
 
   &__messages {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    height: calc(#{$chat-height} - #{$message-input-height});
     padding: $space-xl;
     overflow-y: scroll;
+    width: 100%;
+    height: calc(#{$chat-height} - #{$message-input-height});
 
     .complete {
       flex: 1 1 auto;
@@ -129,20 +129,20 @@ $message-input-height: 72px;
     }
 
     &::-webkit-scrollbar {
+      margin: $space-sm;
       width: 10px;
       height: 10px;
-      margin: $space-sm;
     }
 
     &::-webkit-scrollbar-track {
-      background: var(--background-secondary);
       border: 1px solid var(--background-secondary);
+      background: var(--background-secondary);
     }
 
     &::-webkit-scrollbar-thumb {
-      background-color: var(--theme-color);
-      border-radius: 4px;
       margin: $space-sm;
+      border-radius: 4px;
+      background-color: var(--theme-color);
     }
   }
 }
