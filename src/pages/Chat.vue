@@ -4,8 +4,12 @@
 
     <SideMenu :active="menuStore.active" :onCloseClick="onChatCloseClick" class="chat__side-menu">
       <template v-for="(chat, index) in chatStore.chats">
-        <ChatCard @click="onSelectChat(chat)" :title="chat.title" :description="chat.description"
-          :active="chat.title === chatStore.currentChat" @key="index" />
+        <ChatCard
+          @click="onSelectChat(chat)"
+          :title="chat.title"
+          :description="chat.description"
+          :active="chat.title === chatStore.currentChat" @key="index"
+        />
       </template>
     </SideMenu>
 
@@ -14,7 +18,7 @@
         <Message
           v-for="(message, index) in chatStore.messages"
           @key="index"
-          :isMine="message.userId === authStore.user.uid"
+          :isMine="message.userId === authStore.user?.uid"
           :message="message"
           class="chat__message"
         />
