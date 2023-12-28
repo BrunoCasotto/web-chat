@@ -1,96 +1,55 @@
 <template>
   <div class="wellcome">
-    <h1 class="title">Web chat</h1>
-
-    <div class="card card--borderless">
-      <h2 class="sub-title">Wellcome to Web chat</h2>
-      <Signin class="wellcome__signin"/>
+    <div class="wellcome__container">
+      <h1 class="wellcome__title">Web chat</h1>
+      <GoogleSignInButton @click="authStore.googleSignin"/>
     </div>
   </div>
 </template>
 
 <script setup>
-import Signin from '@/components/Signin.vue'
+import GoogleSignInButton from '@/components/GoogleSignInButton.vue'
+import { useAuthStore } from '../stores/auth'
+
+const authStore = useAuthStore()
 </script>
 
 <style lang="scss" scoped>
 @import '../assets/scss/vars.scss';
 
 .wellcome {
-  padding-top: $space-xl;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
   width: 100%;
   background-color: var(--background);
 
-  @media screen and (max-width: $screen-md) {
-    padding-top: $space-lg;
-  }
+  &__container {
+    min-width: 300px;
+    min-height: 200px;
+    padding: $space-xl;
+    border-radius: 4px;
 
-  &__signin {
-    margin-bottom: $space-xxl;
     @media screen and (max-width: $screen-md) {
-      margin-bottom: 0px;
+      min-width: 200px;
+      min-height: 150px;
     }
   }
-  .title {
+
+  &__title {
+    margin-bottom: $space-xxl;
+    padding-bottom: $space-xxl;
+    border-bottom: 1px solid var(--theme-color);
     font-weight: 600;
-    font-size: 50px;
+    font-size: $font-size-xxxxl;
     color: var(--theme-color);
+    line-height: 1;
     text-align: center;
-    margin-bottom: $space-xxl;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    &::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 40px;
-      background-image: url('./../assets/images/send.svg');
-      background-repeat: no-repeat;
-      background-size: contain;
-      margin-left: $space-lg;
-    }
 
     @media screen and (max-width: $screen-md) {
-      font-size: 40px;
-      margin-bottom: $space-lg;
+      font-size: $font-size-xxxl;
     }
   }
-
-  .sub-title {
-    color: var(--theme-color);
-    font-size: $font-size-xxxl;
-    margin-bottom: $space-xl;
-
-    @media screen and (max-width: $screen-md) {
-      margin-bottom: $space-sm;
-    }
-  }
-
-  .info {
-    text-align: justify;
-    color: var(--theme-color-5);
-    font-size: $font-size-lg;
-  }
-
-  .card {
-    width: 100%;
-    max-width: 930px;
-    margin: 0 auto;
-    padding: 16px;
-    border: 1px solid var(--theme-color);
-    border-radius: 22px;
-    margin-bottom: $space-xl;
-
-    @media screen and (max-width: $screen-md) {
-      padding: $space-xl;
-      margin-bottom: $space-lg;
-    }
-
-    &--borderless {
-      border: none;
-    }
-  }
-}</style>
+}
+</style>

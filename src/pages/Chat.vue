@@ -1,8 +1,8 @@
 <template>
   <div class="chat">
-    <ButtonMenu @click="menuStore.toggleMenu" class="menu-btn" />
+    <ButtonMenu @click="menuStore.toggleMenu" class="chat__float-menu-btn" />
 
-    <SideMenu class="chat__menu" :active="menuStore.active" :onCloseClick="onChatCloseClick">
+    <SideMenu :active="menuStore.active" :onCloseClick="onChatCloseClick" class="chat__side-menu">
       <template v-for="(chat, index) in chatStore.chats">
         <ChatCard @click="onSelectChat(chat)" :title="chat.title" :description="chat.description"
           :active="chat.title === chatStore.currentChat" @key="index" />
@@ -21,7 +21,7 @@
       </template>
 
       <template v-slot:input>
-        <UserInputMessage :onSendClick="onSendMessage" v-model="message" class="user-input"/>
+        <UserInputMessage :onSendClick="onSendMessage" v-model="message" class="chat__message-input"/>
       </template>
     </ChatContent>
   </div>
@@ -71,7 +71,22 @@ onMounted(async () => {
 .chat {
   display: flex;
 
-  &__menu {
+  &__float-menu-btn {
+    z-index: 1;
+    position: absolute;
+    display: none;
+
+    @media screen and (max-width: $screen-sm) {
+      display: block;
+    }
+  }
+
+  &__message-input {
+    width: 100%;
+    max-width: 600px;
+  }
+
+  &__side-menu {
     width: 20%;
   }
 
@@ -86,20 +101,5 @@ onMounted(async () => {
   &__message {
     margin-bottom: $space-xl;
   }
-}
-
-.menu-btn {
-  z-index: 1;
-  position: absolute;
-  display: none;
-
-  @media screen and (max-width: $screen-sm) {
-    display: block;
-  }
-}
-
-.user-input {
-  width: 100%;
-  max-width: 600px;
 }
 </style>
