@@ -5,7 +5,7 @@ import { useAuthStore } from './auth';
 interface ChatStore {
   currentChat: string;
   chats: Chat[];
-  messages: Message[];
+  messages: Record<string, Message>;
 }
 
 const database = getDatabase();
@@ -14,7 +14,7 @@ export const useChatStore = defineStore('chat', {
   state: (): ChatStore => ({
     currentChat: '',
     chats: [],
-    messages: [],
+    messages: {},
   }),
   actions: {
     setCurrentChat(chat: string) {
@@ -49,11 +49,11 @@ export const useChatStore = defineStore('chat', {
       try {
         const MessageRef = query(ref(database, `messages/${chat}`), orderByChild('date'));
         onValue(MessageRef, (snapshot) => {
-          const messages: Array<Message> = snapshot.val();
+          const messages: Record<string, Message> = snapshot.val();
           this.messages = messages;
         });
       } catch (error) {
-        this.messages = [];
+        this.messages = {};
       }
     },
     async postMessage(content: string) {

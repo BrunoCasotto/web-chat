@@ -3,12 +3,15 @@
     <div class="message__content">
       <p class="message__title">{{ message.sender }}:</p>
       <p class="message__text">{{ message.content }}</p>
-      <p class="message__info">{{ message.date }}</p>
+      <p class="message__info">{{ normalizeDate }}</p>
     </div>
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue';
+import dateFormat from 'dateformat';
+
 const props = defineProps({
   isMine: Boolean,
   message: {
@@ -18,6 +21,11 @@ const props = defineProps({
     userId: String,
   },
 });
+
+const normalizeDate = computed(() => {
+  const date = new Date(parseInt(props.message.date, 10))
+  return `${dateFormat(date, 'mmm d, yy')} (${dateFormat(date, 'HH:MM')})`
+})
 </script>
 
 <style lang="scss" scoped>
