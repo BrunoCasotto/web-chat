@@ -2,16 +2,16 @@
   <div class="wellcome">
     <div class="wellcome__container">
       <h1 class="wellcome__title">Web chat</h1>
-      <GoogleSignInButton @click="authStore.googleSignin"/>
+      <GoogleSignInButton @click="authStore.googleSignin" />
     </div>
   </div>
 </template>
 
 <script setup>
-import GoogleSignInButton from '@/components/GoogleSignInButton.vue'
-import { useAuthStore } from '../stores/auth'
+import GoogleSignInButton from '@/components/GoogleSignInButton.vue';
+import { useAuthStore } from '../stores/auth';
 
-const authStore = useAuthStore()
+const authStore = useAuthStore();
 </script>
 
 <style lang="scss" scoped>

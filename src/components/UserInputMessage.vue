@@ -11,7 +11,7 @@
       @change="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       @blur="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       @focus="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
-    >
+    />
     <button class="message-input__send" @click="props.onSendClick">
       <SendIcon />
     </button>
@@ -20,7 +20,7 @@
 
 <script setup lang="ts">
 import { type InputHTMLAttributes } from 'vue';
-import SendIcon from './icons/SendIcon.vue'
+import SendIcon from './icons/SendIcon.vue';
 
 interface Props extends /** @vue-ignore */ InputHTMLAttributes {
   modelValue?: string;
@@ -28,20 +28,18 @@ interface Props extends /** @vue-ignore */ InputHTMLAttributes {
 }
 
 defineOptions({
-  name: 'UserInputMessage'
+  name: 'UserInputMessage',
 });
 
 const props = withDefaults(defineProps<Props>(), {
   modelValue: '',
-  onSendClick: () => {}
+  onSendClick: () => {},
 });
-
 
 defineEmits<{
   (e: 'update:modelValue', value: string): void;
   (e: 'click', event: MouseEvent): void;
 }>();
-
 </script>
 
 <style lang="scss" scoped>

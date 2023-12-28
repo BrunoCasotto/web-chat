@@ -1,15 +1,15 @@
-import { defineStore } from 'pinia'
+import { defineStore } from 'pinia';
 type MenuStore = {
-  active: boolean
-}
+  active: boolean;
+};
 
 export const useMenuStore = defineStore('menu', {
   state: (): MenuStore => ({
-    active: false
+    active: false,
   }),
   actions: {
     toggleMenu() {
-      this.$state.active = !this.$state.active
-    }
+      this.$state.active = !this.$state.active;
+    },
   },
-})
+});

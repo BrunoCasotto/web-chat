@@ -1,9 +1,8 @@
 <template>
   <section class="chat-content">
-
     <div v-if="props.title" class="header">
       <div class="notch">
-        <h1 class="title"> {{ props.title }} </h1>
+        <h1 class="title">{{ props.title }}</h1>
       </div>
     </div>
 
@@ -21,40 +20,40 @@
 </template>
 
 <script setup>
-import UserInputMessage from '@/components/UserInputMessage.vue'
+import UserInputMessage from '@/components/UserInputMessage.vue';
 import { onMounted, ref } from 'vue';
-const messageList = ref(HTMLElement)
-const stopAutoScroll = ref(false)
+const messageList = ref(HTMLElement);
+const stopAutoScroll = ref(false);
 
 const keepMessageScrollBottom = () => {
   const observer = new MutationObserver((mutationList, observer) => {
     for (const mutation of mutationList) {
       if (mutation.type === 'childList' && !stopAutoScroll.value) {
-        messageList.value.scrollTop = messageList.value.scrollHeight
+        messageList.value.scrollTop = messageList.value.scrollHeight;
       }
     }
-  })
+  });
 
   const config = { attributes: false, childList: true, subtree: true };
-  observer.observe(messageList.value, config)
-}
+  observer.observe(messageList.value, config);
+};
 
 const observeUserScroll = () => {
   messageList.value.addEventListener('scroll', (event) => {
-    const { offsetHeight, scrollTop, scrollHeight} = messageList.value
-    const scrolledHeight = offsetHeight + scrollTop
-    stopAutoScroll.value = scrolledHeight < scrollHeight
-  })
-}
+    const { offsetHeight, scrollTop, scrollHeight } = messageList.value;
+    const scrolledHeight = offsetHeight + scrollTop;
+    stopAutoScroll.value = scrolledHeight < scrollHeight;
+  });
+};
 
 onMounted(() => {
-  observeUserScroll()
-  keepMessageScrollBottom()
-})
+  observeUserScroll();
+  keepMessageScrollBottom();
+});
 
 const props = defineProps({
   title: String,
-})
+});
 </script>
 
 <style lang="scss" scoped>

@@ -1,12 +1,12 @@
 <template>
   <div class="search">
-    <Magnifier class="search__icon"/>
-    <input class="search__input" placeholder="Search" type="text">
+    <Magnifier class="search__icon" />
+    <input class="search__input" placeholder="Search" type="text" />
   </div>
 </template>
 
 <script setup>
-import Magnifier from './icons/Magnifier.vue'
+import Magnifier from './icons/Magnifier.vue';
 </script>
 
 <style lang="scss" scoped>

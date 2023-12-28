@@ -10,12 +10,12 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_APP_ID,
 };
 
-let app: FirebaseApp
+let app: FirebaseApp;
 
 export const initializeFirebase = () => {
   app = initializeApp(firebaseConfig);
-}
+};
 
 export const getApp = () => {
-  return app
-}
+  return app;
+};

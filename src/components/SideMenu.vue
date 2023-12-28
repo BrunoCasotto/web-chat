@@ -1,21 +1,21 @@
 <template>
-  <section class="side-menu" :class="{ 'active': props.active }">
+  <section class="side-menu" :class="{ active: props.active }">
     <div class="side-menu__header">
-      <CloseButton @click="onCloseClick" class="close"/>
-      <Search class="search"/>
+      <CloseButton @click="onCloseClick" class="close" />
+      <Search class="search" />
     </div>
     <slot />
   </section>
 </template>
 
 <script setup>
-import Search from '@/components/Search.vue'
-import CloseButton from '@/components/CloseButton.vue'
+import Search from '@/components/Search.vue';
+import CloseButton from '@/components/CloseButton.vue';
 
 const props = defineProps({
   active: Boolean,
-  onCloseClick: Function
-})
+  onCloseClick: Function,
+});
 </script>
 
 <style lang="scss" scoped>
