@@ -1,40 +1,39 @@
 # Web Chat
 
-Um chat desenvolvido para web onde é possível trocar mensagens em tempo real com diversos usuários autenticados (Google Auth).
+A chat application developed for the web where users can exchange real-time messages, authenticated through Google Auth.
 
-## Tecnologias
-Para o desenvolvimento desse projeto foi utilizado:
+## Technologies
+The development of this project involved the use of:
 
 [Vue3](https://vuejs.org/guide/introduction.html)
 
-[Firebase Realtime Database](https://firebase.google.com/docs/database?hl=pt-br)
+[Firebase Realtime Database](https://firebase.google.com/docs/database?hl=en)
 
-[Firebase Hosting](https://firebase.google.com/docs/hosting?hl=pt-br)
+[Firebase Hosting](https://firebase.google.com/docs/hosting?hl=en)
 
-[Google Auth](https://developers.google.com/identity/sign-in/web/sign-in?hl=pt-br)
+[Google Auth](https://developers.google.com/identity/sign-in/web/sign-in?hl=en)
 
 [Scss](https://sass-lang.com/)
 
-## Apresentação
-Com esse projeto é possível:
-* Se auteticar utilizando o Gmail atraves da integração com o google auth
-* Navegar por chats cadastrados previamente no firebase
-* Enviar e receber mensagens de todos usuários que estão com o chat ativo (realtime database)
-* Alternar o tema claro/escuro
+## Presentation
+With this project, you can:
+* Authenticate using Gmail through integration with Google Auth
+* Navigate through chats previously registered in Firebase
+* Send and receive messages from all users with an active chat (realtime database)
+* Switch between light/dark themes
 
-## Print Screens
-Esse projeto está disponível em: https://casotto-web-chat.firebaseapp.com/
+## Screenshots
+This project is available at: https://casotto-web-chat.firebaseapp.com/
 
 <img style="width: 40%; margin: 0 auto;" alt="" src="docs/mobile_screenshot_light.png"><img style="width: 40%;" alt="" src="docs/mobile_screenshot_dark.png">
 
 ## Dev
-Para rodar o projeto local:
-```
+To run the project locally:
+```bash
    $ npm install
    $ npm run dev
 ```
 
-## IDE recomendada
+## Recommended IDE
 
 - [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
